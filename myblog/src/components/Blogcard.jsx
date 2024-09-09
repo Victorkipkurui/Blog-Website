@@ -2,9 +2,11 @@ import React from 'react'
 import { FaUser } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 
-function Blogcard({blogs}) {
-const filteredBlogs = blogs
-
+const Blogcard = ({blogs, currentPage,selectedCategory, pageSize})=>{
+  const filteredBlogs = blogs
+  .filter((blogs)=> !selectedCategory || blogs.category === selectedCategory)
+  .slice((currentPage-1)*pageSize, currentPage* pageSize);
+  console.log(filteredBlogs)
   return (
     <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8'>{
       filteredBlogs.map((blog)=><Link key={blog.id} className='p-5 cursor-pointer shadow-lg rounded'>
