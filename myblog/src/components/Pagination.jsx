@@ -7,7 +7,7 @@ const Pagination=({onpageChange, currentPage, blogs, pageSize})=> {
   const renderPagination = () =>{
     return Array.from({length: totalPages},(_, i)=> i+1).map((pageNumber)=>(
     <li className={pageNumber === currentPage ? "activePagination" : ""} key={pageNumber}>
-      <a href="#" onClick={()=>handlePages(pageNumber)}>{pageNumber}</a>
+      <a href="#" onClick={()=>onpageChange(pageNumber)}>{pageNumber}</a>
     </li>))
   }
   return (

@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { FaGithub, FaXTwitter, FaLinkedin, FaBars, FaXmark} from "react-icons/fa6";
+import Modal from './Modal';
 
 const Navbar = () => {
   const [isMenuon, setIsmenuon] = useState(false);
+  const [isModalopen, setIsModalopen] = useState(false);
 
   const toggleMenu = ()=>{
     setIsmenuon(!isMenuon);
@@ -15,6 +17,15 @@ const Navbar = () => {
     {path:'/services', link:"Services"},
     {path:'/contacts', link:"Contacts"}
   ]
+
+
+  const openModal = ()=>{
+    setIsModalopen(true);
+  }
+  const closeModal = ()=>{
+    setIsModalopen(false);
+  }
+
   return (
    <header className='bg-black text-white fixed top-0 right-0 left-0'>
 
@@ -30,16 +41,21 @@ const Navbar = () => {
           </li>)
         }
       </ul>
+
       <div className='text-white lg:flex gap-4 items-center hidden'>
         <a href="/" className='hover:text-orange-600'><FaGithub></FaGithub></a>
         <a href="/" className='hover:text-orange-600'><FaXTwitter></FaXTwitter></a>
         <a href="/" className='hover:text-orange-600'><FaLinkedin></FaLinkedin></a>
-        <button className='bg-orange-600 px-6 py-2 font-medium rounded hover:bg-white hover:text-orange-600 transition-all duration-200 ease-in'>Log In</button>
+        <button onClick={openModal} className='bg-orange-600 px-6 py-2 font-medium rounded hover:bg-white hover:text-orange-600 transition-all duration-200 ease-in'>Log In</button>
       </div>
+
+      <Modal isOpen = {isModalopen} onClose={closeModal}></Modal>
+
       <div className='md:hidden'>
         <button onClick={toggleMenu} className='cursor-pointer'>
           { isMenuon ? <FaXmark className='w-5 h-5'></FaXmark> :<FaBars className='w-5 h-5'></FaBars>}</button>
       </div>
+
     </nav>
     {/* Menu on mobile*/}
     <div>
