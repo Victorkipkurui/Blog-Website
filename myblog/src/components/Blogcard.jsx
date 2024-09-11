@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 const Blogcard = ({ blogs, currentPage, selectedCategory, pageSize }) => {
   // Filter and paginate blogs based on category and page number
   const filteredBlogs = blogs
-    .filter((blogs) => !selectedCategory || blogs.category === selectedCategory)
+    .filter((blog) => !selectedCategory || blog.category === selectedCategory)
     .slice((currentPage - 1) * pageSize, currentPage * pageSize);
-    console.log(filteredBlogs);
+
+  console.log(filteredBlogs);
 
   // Return a message if no blogs are available
   if (filteredBlogs.length === 0) {
@@ -17,11 +18,10 @@ const Blogcard = ({ blogs, currentPage, selectedCategory, pageSize }) => {
   return (
     <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8'>
       {filteredBlogs.map((blog) => (
-        <Link to={`/blogs/${blog.id}`} key={blog.id} className='p-5 cursor-pointer shadow-lg rounded'>
+        <Link to={`${blog.id}`} key={blog.id} className='p-5 cursor-pointer shadow-lg rounded'>
           <div>
-            {/* Check if image exists, else provide a fallback */}
             <img
-              src={blog.image ? blog.image : 'https://via.placeholder.com/300'} // Placeholder if image is missing
+              src={blog.image ? blog.image : 'https://via.placeholder.com/300'}
               alt={blog.title ? blog.title : 'Blog image'}
               className='w-full h-64 object-cover rounded'
             />

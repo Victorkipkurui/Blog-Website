@@ -6,10 +6,10 @@ import Sidebar from './Sidebar';
 
 const Blogpage = () => {
   const [blogs, setBlogs] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1); // Fixed naming for consistency
-  const pageSize = 12; // Blogs per page
-  const [selectedCategory, setSelectedCategory] = useState(null); // Consistent camelCase
-  const [activeCategory, setActiveCategory] = useState(null); // Consistent camelCase
+  const [currentPage, setCurrentPage] = useState(1); 
+  const pageSize = 12; 
+  const [selectedCategory, setSelectedCategory] = useState(null); 
+  const [activeCategory, setActiveCategory] = useState(null); 
 
   useEffect(() => {
     async function fetchBlogs() {
@@ -17,33 +17,28 @@ const Blogpage = () => {
 
       // Filtering by category
       if (selectedCategory) {
-        url += `&category=${selectedCategory}`; // Added '=' after category
+        url += `&category=${selectedCategory}`;
       }
 
       try {
         const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
         const data = await response.json();
         setBlogs(data);
       } catch (error) {
-        console.error("Error fetching blogs:", error);
+        console.error('Error fetching blogs:', error);
       }
     }
 
     fetchBlogs();
-  }, [currentPage, pageSize, selectedCategory]);
+  }, [currentPage, selectedCategory]);
 
-  // Page change handler
   const handlePages = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
-  // Category change handler
   const handleCategory = (category) => {
     setSelectedCategory(category);
-    setCurrentPage(1); // Reset to the first page when category changes
+    setCurrentPage(1); 
     setActiveCategory(category);
   };
 

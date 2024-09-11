@@ -1,10 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { FaClock, FaUser } from 'react-icons/fa6'; // Combined import
+import { FaClock, FaUser } from 'react-icons/fa6';
 import Sidebar from '../components/Sidebar';
 
 const Singleblog = () => {
   const data = useLoaderData();
+  console.log(data);
 
   // Check if data is not null or undefined and contains at least one element
   if (!data || data.length === 0) {
@@ -32,18 +33,9 @@ const Singleblog = () => {
             <FaClock className='inline-flex items-center mr-2' />{reading_time}
           </p>
           <p className='text-base text-gray-600 mb-6'>{content}</p>
-          <div className='text-base text-gray-500'>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quod mollitia eveniet dolorum dignissimos labore earum enim, ut quaerat beatae veritatis molestias aspernatur? Dicta nihil rem illo eum nulla quos.</p>
-            <br />
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quod mollitia eveniet dolorum dignissimos labore earum enim, ut quaerat beatae veritatis molestias aspernatur? Dicta nihil rem illo eum nulla quos.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quod mollitia eveniet dolorum dignissimos labore earum enim, ut quaerat beatae veritatis molestias aspernatur? Dicta nihil rem illo eum nulla quos.</p>
-            <br />
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quod mollitia eveniet dolorum dignissimos labore earum enim, ut quaerat beatae veritatis molestias aspernatur? Dicta nihil rem illo eum nulla quos.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quod mollitia eveniet dolorum dignissimos labore earum enim, ut quaerat beatae veritatis molestias aspernatur? Dicta nihil rem illo eum nulla quos.</p>
-          </div>
         </div>
         <div className='lg:w-1/2'>
-            <Sidebar />
+          <Sidebar />
         </div>
       </div>
     </div>
