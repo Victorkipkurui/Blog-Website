@@ -6,12 +6,12 @@ import Sidebar from '../components/Sidebar';
 const Singleblog = () => {
   const data = useLoaderData();
 
-  // Ensure data[0] exists to prevent destructuring errors
-  if (!data || !data[0]) {
-    return <div>Blog not found</div>; // Handle the case where data is missing
+  // Check if data is not null or undefined and contains at least one element
+  if (!data || data.length === 0) {
+    return <div className="text-center py-40">No blog data found.</div>;
   }
 
-  const { title, image, category, author, published_date, reading_time, content } = data[0];
+  const { title, image, author, published_date, reading_time, content } = data[0];
 
   return (
     <div>
@@ -43,7 +43,7 @@ const Singleblog = () => {
           </div>
         </div>
         <div className='lg:w-1/2'>
-            <Sidebar></Sidebar>
+            <Sidebar />
         </div>
       </div>
     </div>
