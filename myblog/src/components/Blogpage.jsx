@@ -15,7 +15,6 @@ const Blogpage = () => {
     async function fetchBlogs() {
       let url = `http://localhost:3000/blogs?page=${currentPage}&limit=${pageSize}`;
 
-      // Filtering by category
       if (selectedCategory) {
         url += `&category=${selectedCategory}`;
       }

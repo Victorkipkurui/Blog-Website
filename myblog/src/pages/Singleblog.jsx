@@ -12,7 +12,7 @@ const Singleblog = () => {
     return <div className="text-center py-40">No blog data found.</div>;
   }
 
-  const { title, image, author, published_date, reading_time, content } = data[0];
+  const { title, image, author, published_date, reading_time, content } = data;
 
   return (
     <div>
@@ -33,6 +33,11 @@ const Singleblog = () => {
             <FaClock className='inline-flex items-center mr-2' />{reading_time}
           </p>
           <p className='text-base text-gray-600 mb-6'>{content}</p>
+          <p className='text-base text-gray-600 mb-6'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, ipsa ipsum veritatis nam aspernatur dignissimos natus ipsam, consequatur blanditiis dolores officia dolore voluptate doloribus id maxime magnam inventore perferendis repellendus.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, ipsa ipsum veritatis nam aspernatur dignissimos natus ipsam, consequatur blanditiis dolores officia dolore voluptate doloribus id maxime magnam inventore perferendis repellendus.</p>
+          <p className='text-base text-gray-600 mb-6'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, ipsa ipsum veritatis nam aspernatur dignissimos natus ipsam, consequatur blanditiis dolores officia dolore voluptate doloribus id maxime magnam inventore perferendis repellendus.</p>
+          <p className='text-base text-gray-600 mb-6'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, ipsa ipsum veritatis nam aspernatur dignissimos natus ipsam, consequatur blanditiis dolores officia dolore voluptate doloribus id maxime magnam inventore perferendis repellendus.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, ipsa ipsum veritatis nam aspernatur dignissimos natus ipsam, consequatur blanditiis dolores officia dolore voluptate doloribus id maxime magnam inventore perferendis repellendus.</p>
+          <p className='text-base text-gray-600 mb-6'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, ipsa ipsum veritatis nam aspernatur dignissimos natus ipsam, consequatur blanditiis dolores officia dolore voluptate doloribus id maxime magnam inventore perferendis repellendus.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, ipsa ipsum veritatis nam aspernatur dignissimos natus ipsam, consequatur blanditiis dolores officia dolore voluptate doloribus id maxime magnam inventore perferendis repellendus.</p>
+          <p className='text-base text-gray-600 mb-6'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, ipsa ipsum veritatis nam aspernatur dignissimos natus ipsam, consequatur blanditiis dolores officia dolore voluptate doloribus id maxime magnam inventore perferendis repellendus.</p>
         </div>
         <div className='lg:w-1/2'>
           <Sidebar />

@@ -14,15 +14,15 @@ const Blogcard = ({ blogs, currentPage, selectedCategory, pageSize }) => {
   if (filteredBlogs.length === 0) {
     return <p>No blogs available for this category.</p>;
   }
-
-  return (
+  
+return (
     <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8'>
       {filteredBlogs.map((blog) => (
-        <Link to={`${blog.id}`} key={blog.id} className='p-5 cursor-pointer shadow-lg rounded'>
+        <Link to={`/blogs/${blog.id}`} key={blog.id} className='p-5 cursor-pointer shadow-lg rounded'>
           <div>
             <img
-              src={blog.image ? blog.image : 'https://via.placeholder.com/300'}
-              alt={blog.title ? blog.title : 'Blog image'}
+              src={blog.image}
+              alt='Blog image'
               className='w-full h-64 object-cover rounded'
             />
           </div>
